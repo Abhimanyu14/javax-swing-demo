@@ -6,6 +6,7 @@ import javax.swing.JButton
 import javax.swing.JFrame
 
 class AppFrame : JFrame() {
+    private val toolbar: Toolbar
     private val textPanel: TextPanel
     private val button: JButton
 
@@ -15,6 +16,7 @@ class AppFrame : JFrame() {
         size = Dimension(600, 600)
         defaultCloseOperation = DISPOSE_ON_CLOSE
 
+        toolbar = Toolbar()
         textPanel = TextPanel()
         button = JButton(
             "Greet!"
@@ -27,6 +29,7 @@ class AppFrame : JFrame() {
         }
 
         layout = BorderLayout()
+        add(toolbar, BorderLayout.NORTH)
         add(textPanel, BorderLayout.CENTER)
         add(button, BorderLayout.SOUTH)
     }
