@@ -4,10 +4,9 @@ import java.awt.BorderLayout
 import java.awt.Dimension
 import javax.swing.JButton
 import javax.swing.JFrame
-import javax.swing.JTextArea
 
 class AppFrame : JFrame() {
-    private val textArea: JTextArea
+    private val textPanel: TextPanel
     private val button: JButton
 
     init {
@@ -16,17 +15,19 @@ class AppFrame : JFrame() {
         size = Dimension(600, 600)
         defaultCloseOperation = DISPOSE_ON_CLOSE
 
-        textArea = JTextArea()
+        textPanel = TextPanel()
         button = JButton(
             "Greet!"
         ).apply {
             addActionListener { actionEvent ->
-                textArea.append("Ohayo gozaimasu!\n")
+                textPanel.appendText(
+                    text = "Ohayo gozaimasu!\n",
+                )
             }
         }
 
         layout = BorderLayout()
-        add(textArea, BorderLayout.CENTER)
+        add(textPanel, BorderLayout.CENTER)
         add(button, BorderLayout.SOUTH)
     }
 }
