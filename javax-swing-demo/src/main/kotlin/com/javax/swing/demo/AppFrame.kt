@@ -9,6 +9,7 @@ class AppFrame : JFrame() {
     private val toolbar: Toolbar
     private val textPanel: TextPanel
     private val goodMorningButton: JButton
+    private val formPanel: FormPanel
 
     init {
         title = "Hola Javax Swing Demo!"
@@ -38,10 +39,12 @@ class AppFrame : JFrame() {
                 )
             }
         }
+        formPanel = FormPanel()
 
         layout = BorderLayout()
         add(toolbar, BorderLayout.NORTH)
         add(textPanel, BorderLayout.CENTER)
         add(goodMorningButton, BorderLayout.SOUTH)
+        add(formPanel, BorderLayout.WEST)
     }
 }
