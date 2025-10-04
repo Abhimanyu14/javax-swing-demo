@@ -8,7 +8,7 @@ import javax.swing.JFrame
 class AppFrame : JFrame() {
     private val toolbar: Toolbar
     private val textPanel: TextPanel
-    private val button: JButton
+    private val goodMorningButton: JButton
 
     init {
         title = "Hola Javax Swing Demo!"
@@ -16,10 +16,21 @@ class AppFrame : JFrame() {
         size = Dimension(600, 600)
         defaultCloseOperation = DISPOSE_ON_CLOSE
 
-        toolbar = Toolbar()
+        toolbar = Toolbar(
+            onHelloButton1Click = {
+                textPanel.appendText(
+                    text = "Konnichiwa!\n",
+                )
+            },
+            onGoodbyeButton2Click = {
+                textPanel.appendText(
+                    text = "Sayōnara!\n",
+                )
+            },
+        )
         textPanel = TextPanel()
-        button = JButton(
-            "Greet!"
+        goodMorningButton = JButton(
+            "Good Morning!"
         ).apply {
             addActionListener { actionEvent ->
                 textPanel.appendText(
@@ -31,6 +42,6 @@ class AppFrame : JFrame() {
         layout = BorderLayout()
         add(toolbar, BorderLayout.NORTH)
         add(textPanel, BorderLayout.CENTER)
-        add(button, BorderLayout.SOUTH)
+        add(goodMorningButton, BorderLayout.SOUTH)
     }
 }
